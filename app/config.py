@@ -7,7 +7,7 @@ import os
 
 
 try:
-    port = int(os.environ.get("PORT", "8080"))
+    port = 45
 except Exception as e:
     print(e)
     port = -1
@@ -18,8 +18,8 @@ if not 1 <= port <= 65535:
     sys.exit(1)
 
 try:
-    api_id = int(os.environ["API_ID"])
-    api_hash = os.environ["API_HASH"]
+    api_id = 27068247
+    api_hash = "d63399ee39e1c901565fb85ef547c6e7"
 except (KeyError, ValueError):
     traceback.print_exc()
     print("\n\nPlease set the API_ID and API_HASH environment variables correctly")
@@ -27,7 +27,7 @@ except (KeyError, ValueError):
     sys.exit(1)
 
 try:
-    index_settings_str = os.environ["INDEX_SETTINGS"].strip()
+    index_settings_str = "{"index_all": false,"index_private": true,"index_group": false,"index_channel": true,"exclude_chats": [],"include_chats": []}"
     index_settings = json.loads(index_settings_str)
 except Exception:
     traceback.print_exc()
@@ -35,7 +35,7 @@ except Exception:
     sys.exit(1)
 
 try:
-    session_string = os.environ["SESSION_STRING"]
+    session_string = "AQGdB1cAtWMiirqlWECNDb7QpX9yGr6ztZAm0rYRTp0GpcQcOVj0ugl9J7VK3NHQnY2bqSY-hwoni_ZJBWQWk_Sy8EsQOXSnTAPVx2Wsxz3YrPVJO5cUSmtEOVQO2UADjwfHpnripLuYVSgMZS4bRioIupZuai1DOkAYsaSbf3UbtZq9k2jrVial-H-vAamAGAwEn0j_qPzkMj4jWbP-kxqzIzWcxqXzmKh5CRLvx-Eq0FA9SZP15XwG0cD1-EyB1ySHd7d78ctRJ8QNrZzPD7X3HZWcndjhvHp2PsrnyHM6Jr6Vb7P2hEMDMSuGZ9A_fNE9o7IA2paMeK82Y_b1CAMJwNVDqAAAAAE4EueVAA"
 except (KeyError, ValueError):
     traceback.print_exc()
     print("\n\nPlease set the SESSION_STRING environment variable correctly")
@@ -43,7 +43,7 @@ except (KeyError, ValueError):
 
 host = os.environ.get("HOST", "0.0.0.0")
 debug = bool(os.environ.get("DEBUG"))
-block_downloads = bool(os.environ.get("BLOCK_DOWNLOADS"))
+block_downloads = False
 results_per_page = int(os.environ.get("RESULTS_PER_PAGE", "20"))
 logo_folder = Path(os.path.join(tempfile.gettempdir(), "logo"))
 logo_folder.mkdir(parents=True, exist_ok=True)
